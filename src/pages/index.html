@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starmovie</title>
+</head>
+<body>
+    <header>
+        <div id="logo">
+        <h3>starmovie</h3>
+        </div> <!--logo-->
+        <nav>
+            <ul>
+                <li>Inicio</li>
+                <li>Usuário</li>
+                <li>Filmes</li>
+                <li>Avaliações</li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="main-screen"> <!--sessão principal, introdutoria-->
+                <h1>Starmovie</h1>
+                <h2>avaliador de filmes</h2>
+                <img src="/src/image/main-img.jfif" alt="claquete de cinema">
+                <p>cadastre os filmes assistidos e adicione avaliações </p>
+                <article> 
+                    <button id="start">Começar</button>
+                </article>
+        </section> <!--main-screen fechamento-->
+
+        <section id="cadastro"> <!--sessão de cadastro-->
+          <article id="user-info"> <!--onde que vai conter cadastro do user-->
+                <h2>Telespectador</h2>
+                <label>Nome ou apelido</label>
+                <input id="nameUser" type="text" placeholder="Digite aqui o seu nome">
+            </article> <!--user fechamento-->
+
+            <article id="movie-info"> <!--onde que vai conter cadastro do filme-->
+                <h2>Filme</h2>
+                <label>Título do filme</label>
+                <input id="movie-name" type="text" placeholder="Digite aqui o título do filme"> <!--titulo-->
+                <label>Gênero do filme</label>
+                <input id="movie=genre" type="text" placeholder="Digite aqui o gênero do filme"> <!--genero-->
+                <label>Ano do filme</label>
+                <input id="movie-date" type="text" placeholder="Digite aqui o ano do filme"> <!--ano-->
+                <label>Estrelas para o filme</label>
+                <input id="movie-stars" type="text" placeholder="Digite aqui quantas estrelas o filme merece"> <!--estrelas-->
+            </article> <!--filme fechamento-->
+
+            <button id="submit">Avaliar</button>
+        </section> <!--cadastro fechamento-->
+
+        <section id="card">
+            <h2>Avaliações</h2>
+                <label>Nome do telespectador: <span class="span"></span></label>
+                <label>Nome do filme: <span class="span"></span></label> 
+                <label>Gênero do filme: <span class="span"></span></label>
+                <label>Ano de lançamento do filme: <span class="span"></span></label>
+                <label>Avaliação: <span class="span"></span></label>
+            <article>
+                <button id="edit">Editar</button>
+                <button id="delet">Deletar</button>
+                <button id="add">Adcionar</button>
+            </article>
+        </section> <!--card fechamento-->
+    </main>
+</body>
+</html>
