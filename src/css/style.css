@@ -8,6 +8,10 @@
     box-sizing: border-box;
   }
 
+  html{
+    scroll-behavior: smooth;
+  }
+
 body{
     background-color: #fafbfc;
     display: flex;
@@ -30,22 +34,33 @@ nav ul{
     justify-content: flex-end;
     list-style: none;
 }
-
-nav li{
+nav li {
     margin: 24.5% 10% 0% 10%;
+}
+nav a{
+    color:#010203;
+    text-decoration: none;
     font-family:Open Sans;
     font-size: 0.9em;
 }
 
 /* main estilo */
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    }
+
 #main-screen{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin: 13% 0% 10% 0%; 
-height: 28% ;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 13% 0% 10% 0%; 
+    height: 30% ;
+    }
+/* fontes */
 
 h1{
     font-family:League Spartan;
@@ -69,36 +84,14 @@ img{
     margin-bottom: 1.5%;
 }
 
-input{
-padding: 10px;
-border: 1px solid #ccc;
-border-radius: 5px;
-outline: 0;
-}
-#start, #submit{
-background-color: #6d0f0f;
-color: #f1f1f1;
-width:90px;
-height: 30px;
-font-size: 1.2em;
-border-radius: 16px;
-font-family:League Spartan;
-}
-#edit, #delet, #add{
-    background-color:#f1f1f1;
-    color: #6d0f0f;
-    width:90px;
-    height: 30px;
-    font-size: 1.2em;
-    border-radius: 16px;
-    font-family:League Spartan;
-}
+/* cards */
 #cadastro{
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 gap: 2rem;
+font-family:League Spartan;
 height: 50%;
 }
 
@@ -111,12 +104,11 @@ background-color: #6d0f0f;
 font-size: 1em;
 gap: 0.5rem;
 border-radius: 16px;
-font-family:League Spartan;
-height: 130px;
-width: 40%;
+height: 140px;
+width: 120%;
 }
 
-#movie-info{
+#movie-info, #lastSection{
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -125,31 +117,62 @@ gap: 1rem;
 background-color: #6d0f0f;
 font-size: 1em;
 border-radius: 16px;
-font-family:League Spartan;
 height: 390px;
+width: 130%;
+}
+#lastSection{
+height: auto;
 width: 40%;
 }
-#card{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 2rem;
-background-color: #9c4242;
-font-size: 1em;
-border-radius: 16px;
+.avaliacaoFinal{
+padding: 6%;
+list-style: none;
+margin-top: 7%;
+font-size: 1.2em;
 font-family:League Spartan;
 }
 
-table{
-    border-collapse: collapse;
-    border: 1px solid #ffffff;;
+/* botoes e input*/
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    border-radius: 16px;
+    width:90px;
+    height: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family:League Spartan;
+    margin-bottom: 20%;
 }
 
-table th{
-    background-color: #949494;
+button:hover {
+    background-color: #dab0b0;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-table tr {
-    background-color: #fafbfc;
+#submit{
+    background-color: #6d0f0f;
+    color: #f1f1f1;
+    font-size: 1.2em;
 }
+
+.edit, .delet{
+    margin-top: 6%;
+        background-color:#f1f1f1;
+        color: #6d0f0f;
+        width:90px;
+        height: 30px;
+        font-size: 1.2em;
+        border-radius: 16px;
+        font-family:League Spartan;
+    }
+
+    input{
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: 0;
+        }
