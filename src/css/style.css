@@ -58,10 +58,10 @@ main{
     justify-content: center;
     align-items: center;
     margin: 13% 0% 10% 0%; 
-    height: 30% ;
+    height: 50%;
     }
-/* fontes */
 
+/* fontes */
 h1{
     font-family:League Spartan;
     font-size: 3.5em;
@@ -90,7 +90,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-gap: 2rem;
+gap: 1.8rem;
 font-family:League Spartan;
 height: 50%;
 }
@@ -117,19 +117,22 @@ gap: 1rem;
 background-color: #6d0f0f;
 font-size: 1em;
 border-radius: 16px;
-height: 390px;
+height: 420px;
 width: 130%;
 }
 #lastSection{
 height: auto;
-width: 40%;
+width: 38%;
 }
 .avaliacaoFinal{
 padding: 6%;
-list-style: none;
 margin-top: 7%;
 font-size: 1.2em;
 font-family:League Spartan;
+}
+
+.avaliacaoFinal ul{
+    list-style: none;
 }
 
 /* botoes e input*/
@@ -144,7 +147,7 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
     font-family:League Spartan;
-    margin-bottom: 20%;
+    margin-bottom: 10%;
 }
 
 button:hover {
@@ -165,9 +168,9 @@ button:hover {
         color: #6d0f0f;
         width:90px;
         height: 30px;
-        font-size: 1.2em;
         border-radius: 16px;
         font-family:League Spartan;
+        font-size: 1em;
     }
 
     input{
@@ -176,3 +179,21 @@ button:hover {
         border-radius: 5px;
         outline: 0;
         }
+
+/*responsividade*/
+@media (max-width: 480px){
+header{
+    display: none;
+}
+    main{
+        width: 100%; /* Ajusta para 100% da largura */
+        margin:2% 6% 2% 6%; /*topo direita embaixo e esquerda*/
+    }
+
+#lastSection{
+    margin-top: 10%;
+    height: auto;
+    width: 45%;
+    }
+
+}
