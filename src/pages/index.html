@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Starmovie</title>
+    <link rel="stylesheet" href="/src/css/style.css">
 </head>
 <body>
     <header>
@@ -12,8 +13,7 @@
         </div> <!--logo-->
         <nav>
             <ul>
-                <li>Inicio</li>
-                <li>Usuário</li>
+                <li>Início</li>
                 <li>Filmes</li>
                 <li>Avaliações</li>
             </ul>
@@ -22,7 +22,7 @@
 
     <main>
         <section id="main-screen"> <!--sessão principal, introdutoria-->
-                <h1>Starmovie</h1>
+                <!-- <h1>Starmovie</h1> -->
                 <h2>avaliador de filmes</h2>
                 <img src="/src/image/main-img.jfif" alt="claquete de cinema">
                 <p>cadastre os filmes assistidos e adicione avaliações </p>
@@ -43,7 +43,7 @@
                 <label>Título do filme</label>
                 <input id="movie-name" type="text" placeholder="Digite aqui o título do filme"> <!--titulo-->
                 <label>Gênero do filme</label>
-                <input id="movie=genre" type="text" placeholder="Digite aqui o gênero do filme"> <!--genero-->
+                <input id="movie-genre" type="text" placeholder="Digite aqui o gênero do filme"> <!--genero-->
                 <label>Ano do filme</label>
                 <input id="movie-date" type="text" placeholder="Digite aqui o ano do filme"> <!--ano-->
                 <label>Estrelas para o filme</label>
@@ -55,17 +55,20 @@
 
         <section id="card">
             <h2>Avaliações</h2>
-                <label>Nome do telespectador: <span class="span"></span></label>
-                <label>Nome do filme: <span class="span"></span></label> 
-                <label>Gênero do filme: <span class="span"></span></label>
-                <label>Ano de lançamento do filme: <span class="span"></span></label>
-                <label>Avaliação: <span class="span"></span></label>
+            <label><span class="span"></span></label>
+            <label><span class="span"></span></label> 
+            <label><span class="span"></span></label>
+            <label><span class="span"></span></label>
+            <label><span class="span"></span></label>
+            <section id="cardsFinais">
+
+            </section>
             <article>
                 <button id="edit">Editar</button>
                 <button id="delet">Deletar</button>
-                <button id="add">Adcionar</button>
             </article>
         </section> <!--card fechamento-->
     </main>
+<script src="/src/js/script.js"></script>
 </body>
 </html>
