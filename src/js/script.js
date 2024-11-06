@@ -1,14 +1,6 @@
-// declarando arrays 
-let arrayTelespectador = [];
-let arrayNomeFilme = [];
-let arrayAnoFilme= [];
-let arrayGeneroFilme = [];
-let arrayAvaliacoes = [];
-console.log(arrayNomeFilme)
-console.log(arrayTelespectador)
-console.log(arrayAnoFilme)
-console.log(arrayGeneroFilme)
-console.log(arrayAvaliacoes)
+// array inicial
+let arrayFilmes = [];
+console.log(arrayFilmes);
 
 // INSTÂNCIAS DO DOM
 const nomeTelespectador = document.getElementById("nameUser");
@@ -19,16 +11,14 @@ const infoFilme = {
   avaliacao: document.getElementById("movie-stars"),
 };
 const button = document.getElementById("submit");
-const spans = document.querySelectorAll(".span");
-
+const cardsContainer = document.getElementById("card");
 
 // MODELOS
 class Telespectador {
   constructor(nomeTelespectador) {
     this.nomeTelespectador = nomeTelespectador;
   }
-
-  }
+}
 
 class Filmes extends Telespectador {
   constructor(nomeTelespectador, nomeFilme, genero, ano, avaliacao) {
@@ -39,92 +29,79 @@ class Filmes extends Telespectador {
     this.avaliacao = avaliacao;
   }
 
-  exibirFilme() {
-    spans[0].innerText = this.nomeTelespectador;
-    spans[1].innerText = this.nomeFilme;
-    spans[2].innerText = this.genero;
-    spans[3].innerText = this.ano;
-    spans[4].innerText = this.avaliacao;
+  // adicionar o filme no array
+  adicionar() {
+    arrayFilmes.push(this);
   }
 
-adicionar(){
-    arrayTelespectador.push(nomeTelespectador.value)
-    arrayNomeFilme.push(infoFilme.nomeFilme.value)
-    arrayGeneroFilme.push(infoFilme.genero.value)
-    arrayAnoFilme.push(infoFilme.ano.value)
-    arrayAvaliacoes.push(infoFilme.avaliacao.value)
-  }
+  static listando() {
+    cardsContainer.innerHTML = '';
 
-  listando(){
-    const cards = document.getElementById('card');
-    cards.innerHTML ='';
-    for(let i = 0; i < arrayTelespectador.length; i++){
-        
-        const avaliacaoFinal = document.createElement('ul');
-        avaliacaoFinal.classList.add('avaliacaoFinal');
-        cards.append(avaliacaoFinal);
-    
-        const elementoTelespectador = document.createElement('li');
-        const labelTelespectador = document.createElement('label');
-        labelTelespectador.innerText = "Telespectador: ";
-        elementoTelespectador.appendChild(labelTelespectador);
-        elementoTelespectador.innerHTML += `${arrayTelespectador[i]}`;
-        avaliacaoFinal.appendChild(elementoTelespectador);
+    arrayFilmes.forEach((filme, index) => {
+      const card = document.createElement('div');
+      card.classList.add('avaliacaoFinal');
+      cardsContainer.append(card);
+      card.innerHTML = `
+        <ul>
+          <li><strong>Telespectador:</strong> ${filme.nomeTelespectador}</li>
+          <li><strong>Filme:</strong> ${filme.nomeFilme}</li>
+          <li><strong>Gênero:</strong> ${filme.genero}</li>
+          <li><strong>Ano:</strong> ${filme.ano}</li>
+          <li><strong>Avaliação:</strong> ${filme.avaliacao}</li>
+        </ul>
+      `;
 
-        
-        const elementoNomeFilme = document.createElement('li');
-        const labelNomeFilme = document.createElement('label');
-        labelNomeFilme.innerText = "Filme: ";
-        elementoNomeFilme.appendChild(labelNomeFilme);
-        elementoNomeFilme.innerHTML += `${arrayNomeFilme[i]}`;
-        avaliacaoFinal.appendChild(elementoNomeFilme);
-
-        const elementoDataFilme = document.createElement('li');
-        const labelDataFilme = document.createElement('label');
-        labelDataFilme.innerText = "Ano: ";
-        elementoDataFilme.appendChild(labelDataFilme);
-        elementoDataFilme.innerHTML += `${arrayAnoFilme[i]}`;
-        avaliacaoFinal.appendChild(elementoDataFilme);
-
-        const elementoGeneroFilme = document.createElement('li');
-        const labelGeneroFilme = document.createElement('label');
-        labelGeneroFilme.innerText = "Gênero: ";
-        elementoGeneroFilme.appendChild(labelGeneroFilme);
-        elementoGeneroFilme.innerHTML += `${arrayGeneroFilme[i]}`;
-        avaliacaoFinal.appendChild(elementoGeneroFilme);
-
-        const elementoAvaliacao = document.createElement('li');
-        const labelAvaliacao = document.createElement('label');
-        labelAvaliacao.innerText = "Avaliação: ";
-        elementoAvaliacao.appendChild(labelAvaliacao);
-        elementoAvaliacao.innerHTML += `${arrayAvaliacoes[i]}`;
-        avaliacaoFinal.appendChild(elementoAvaliacao);
-
-        
+      // Botão de editar
       const botaoEditar = document.createElement('button');
       botaoEditar.innerText = 'Editar';
-      botaoEditar.classList.add('editar');
+      botaoEditar.classList.add('edit');
       botaoEditar.addEventListener('click', () => {
-        editarFilme(i);  // Passa o índice do item para edição
+        editarFilme(index);
       });
 
+      // Botão de deletar
       const botaoDeletar = document.createElement('button');
       botaoDeletar.innerText = 'Deletar';
-      botaoDeletar.classList.add('deletar');
+      botaoDeletar.classList.add('delet');
       botaoDeletar.addEventListener('click', () => {
-        deletarFilme(i);  // Passa o índice do item para deletar
+        deletarFilme(index);
       });
 
-      // Adicionando os botões de editar e deletar ao card
-      avaliacaoFinal.appendChild(botaoEditar);
-      avaliacaoFinal.appendChild(botaoDeletar);
-    }
+      card.appendChild(botaoEditar);
+      card.appendChild(botaoDeletar);
+    });
   }
+}
 
-  }
+function editarFilme(index) {
+  const filme = arrayFilmes[index];
+  nomeTelespectador.value = filme.nomeTelespectador;
+  infoFilme.nomeFilme.value = filme.nomeFilme;
+  infoFilme.genero.value = filme.genero;
+  infoFilme.ano.value = filme.ano;
+  infoFilme.avaliacao.value = filme.avaliacao;
+
+  arrayFilmes.splice(index, 1);
+  Filmes.listando();
+}
+
+function deletarFilme(index) {
+  arrayFilmes.splice(index, 1);
+  Filmes.listando(); 
+}
 
 // EVENTOS
 button.addEventListener("click", () => {
+  if (
+    !nomeTelespectador.value ||
+    !infoFilme.nomeFilme.value ||
+    !infoFilme.genero.value ||
+    !infoFilme.ano.value ||
+    !infoFilme.avaliacao.value
+  ) {
+    alert("Por favor, preencha todos os campos!");
+    return; 
+  }
   const novoFilme = new Filmes(
     nomeTelespectador.value,
     infoFilme.nomeFilme.value,
@@ -133,7 +110,6 @@ button.addEventListener("click", () => {
     infoFilme.avaliacao.value
   );
 
-  novoFilme.exibirFilme();
   novoFilme.adicionar();
-  novoFilme.listando();
+  Filmes.listando(); 
 });
